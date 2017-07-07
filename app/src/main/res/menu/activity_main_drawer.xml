@@ -1,35 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
-    </group>
-
-    <item android:title="Communicate">
+    <item android:title="@string/menu_item_title_01">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/nav_android_async_http"
+                android:icon="@mipmap/icon_01"
+                android:title="@string/nav_android_async_http" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_httpmime"
+                android:icon="@mipmap/icon_02"
+                android:title="@string/nav_httpmime" />
+            <item
+                android:id="@+id/nav_okHttp"
+                android:icon="@mipmap/icon_03"
+                android:title="@string/nav_okHttp" />
+            <item
+                android:id="@+id/nav_retrofit2"
+                android:icon="@mipmap/icon_04"
+                android:title="@string/nav_retrofit2" />
+        </menu>
+    </item>
+
+    <item android:title="@string/menu_item_title_02">
+        <menu>
+            <item
+                android:id="@+id/nav_PullToRefresh"
+                android:icon="@mipmap/icon_01"
+                android:title="@string/nav_PullToRefresh" />
+            <item
+                android:id="@+id/nav_Ultra_Pull_To_Refresh"
+                android:icon="@mipmap/icon_02"
+                android:title="@string/nav_Ultra_Pull_To_Refresh" />
+        </menu>
+    </item>
+
+    <item android:title="@string/menu_item_title_03">
+        <menu>
+            <item
+                android:id="@+id/nav_Butterknife"
+                android:icon="@mipmap/icon_01"
+                android:title="@string/nav_Butterknife" />
+            <item
+                android:id="@+id/nav_dagger2"
+                android:icon="@mipmap/icon_02"
+                android:title="@string/nav_dagger2" />
+        </menu>
+    </item>
+
+    <item android:title="@string/menu_item_title_04">
+        <menu>
+            <item
+                android:id="@+id/nav_Json"
+                android:icon="@mipmap/icon_01"
+                android:title="@string/nav_Json" />
+            <item
+                android:id="@+id/nav_Gson"
+                android:icon="@mipmap/icon_02"
+                android:title="@string/nav_Gson" />
+            <item
+                android:id="@+id/nav_FastJson"
+                android:icon="@mipmap/icon_03"
+                android:title="@string/nav_FastJson" />
+            <item
+                android:id="@+id/nav_converter_gson"
+                android:icon="@mipmap/icon_04"
+                android:title="@string/nav_converter_gson" />
+        </menu>
+    </item>
+
+    <item android:title="@string/menu_item_title_05">
+        <menu>
+            <item
+                android:id="@+id/nav_maa"
+                android:icon="@mipmap/icon_01"
+                android:title="@string/nav_maa" />
+        </menu>
+    </item>
+
+    <item android:title="@string/menu_item_title_06">
+        <menu>
+            <item
+                android:id="@+id/nav_Universalimageloader"
+                android:icon="@mipmap/icon_01"
+                android:title="@string/nav_Universalimageloader" />
+            <item
+                android:id="@+id/nav_Photoview"
+                android:icon="@mipmap/icon_02"
+                android:title="@string/nav_Photoview" />
+        </menu>
+    </item>
+
+    <item android:title="@string/menu_item_title_07">
+        <menu>
+            <item
+                android:id="@+id/nav_pinyin4j"
+                android:icon="@mipmap/icon_01"
+                android:title="@string/nav_pinyin4j" />
+        </menu>
+    </item>
+
+    <item android:title="@string/menu_item_title_08">
+        <menu>
+            <item
+                android:id="@+id/nav_Design"
+                android:icon="@mipmap/icon_01"
+                android:title="@string/nav_Design" />
+            <item
+                android:id="@+id/nav_appcompat_v7"
+                android:icon="@mipmap/icon_02"
+                android:title="@string/nav_appcompat_v7" />
+            <item
+                android:id="@+id/nav_recyclerview_v7"
+                android:icon="@mipmap/icon_03"
+                android:title="@string/nav_recyclerview_v7" />
+            <item
+                android:id="@+id/nav_cardview_v7"
+                android:icon="@mipmap/icon_04"
+                android:title="@string/nav_cardview_v7" />
+        </menu>
+    </item>
+
+    <item android:title="@string/menu_item_title_09">
+        <menu>
+            <item
+                android:id="@+id/nav_TimePickerDialog"
+                android:icon="@mipmap/icon_01"
+                android:title="@string/nav_TimePickerDialog" />
+            <item
+                android:id="@+id/nav_android_times_square"
+                android:icon="@mipmap/icon_02"
+                android:title="@string/nav_android_times_square" />
+        </menu>
+    </item>
+
+    <item android:title="@string/menu_item_title_10">
+        <menu>
+            <item
+                android:id="@+id/nav_discrete_seekbar"
+                android:icon="@mipmap/icon_01"
+                android:title="@string/nav_discrete_seekbar" />
+        </menu>
+    </item>
+
+    <item android:title="@string/menu_item_title_11">
+        <menu>
+            <item
+                android:id="@+id/nav_Multidex"
+                android:icon="@mipmap/icon_01"
+                android:title="@string/nav_Multidex" />
+        </menu>
+    </item>
+
+    <item android:title="@string/menu_item_title_12">
+        <menu>
+            <item
+                android:id="@+id/nav_channel"
+                android:icon="@mipmap/icon_01"
+                android:title="@string/nav_channel" />
+            <item
+                android:id="@+id/nav_walle_plugin"
+                android:icon="@mipmap/icon_02"
+                android:title="@string/nav_walle_plugin" />
+        </menu>
+    </item>
+
+    <item android:title="@string/menu_item_title_13">
+        <menu>
+            <item
+                android:id="@+id/nav_Zxing"
+                android:icon="@mipmap/icon_01"
+                android:title="@string/nav_Zxing" />
+        </menu>
+    </item>
+
+    <item android:title="@string/menu_item_title_14">
+        <menu>
+            <item
+                android:id="@+id/nav_Rxjava"
+                android:icon="@mipmap/icon_01"
+                android:title="@string/nav_Rxjava" />
+            <item
+                android:id="@+id/nav_RxAndroid"
+                android:icon="@mipmap/icon_02"
+                android:title="@string/nav_RxAndroid" />
         </menu>
     </item>
 

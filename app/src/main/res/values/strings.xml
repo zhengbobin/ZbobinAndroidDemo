@@ -5,4 +5,68 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="content_main_empty">Android base framework</string>
+    <!-- nav menu title -->
+    <string name="menu_item_title_01">网络请求</string>
+    <string name="menu_item_title_02">下拉刷新、加载更多</string>
+    <string name="menu_item_title_03">注解</string>
+    <string name="menu_item_title_04">json解析</string>
+    <string name="menu_item_title_05">图片加速</string>
+    <string name="menu_item_title_06">图片加载</string>
+    <string name="menu_item_title_07">字母导航栏</string>
+    <string name="menu_item_title_08">com.android.support组件</string>
+    <string name="menu_item_title_09">时间</string>
+    <string name="menu_item_title_10">拖动选取</string>
+    <string name="menu_item_title_11">dex分包</string>
+    <string name="menu_item_title_12">多渠道打包</string>
+    <string name="menu_item_title_13">二维码扫码</string>
+    <string name="menu_item_title_14">响应式编程框架</string>
+    <!-- nav menu item -->
+    <!-- 1网络请求 -->
+    <string name="nav_android_async_http">Android-async-http</string>
+    <string name="nav_httpmime">Httpmime</string>
+    <string name="nav_okHttp">okHttp</string>
+    <string name="nav_retrofit2">Retrofit2</string>
+    <!-- 2下拉刷新、加载更多 -->
+    <string name="nav_PullToRefresh">PullToRefresh</string>
+    <string name="nav_Ultra_Pull_To_Refresh">Ultra_Pull_To_Refresh</string>
+    <!-- 3注解 -->
+    <string name="nav_Butterknife">Butterknife</string>
+    <string name="nav_dagger2">dagger2</string>
+    <!-- 4json解析 -->
+    <string name="nav_Json">Json</string>
+    <string name="nav_Gson">Gson</string>
+    <string name="nav_FastJson">FastJson</string>
+    <string name="nav_converter_gson">retrofit2:converter-gson</string>
+    <!-- 5图片加速 -->
+    <string name="nav_maa">Maa</string>
+    <!-- 6图片加载 -->
+    <string name="nav_Universalimageloader">Universalimageloader</string>
+    <string name="nav_Photoview">Photoview</string>
+    <!-- 7字母导航栏 -->
+    <string name="nav_pinyin4j">pinyin4j</string>
+    <!-- 8com.android.support组件 -->
+    <string name="nav_Design">Design</string>
+    <string name="nav_appcompat_v7">appcompat-v7</string>
+    <string name="nav_recyclerview_v7">recyclerview-v7</string>
+    <string name="nav_cardview_v7">cardview-v7</string>
+    <!-- 9时间 -->
+    <string name="nav_TimePickerDialog">TimePickerDialog</string>
+    <string name="nav_android_times_square">android-times-square</string>
+    <!-- 10拖动选取 -->
+    <string name="nav_discrete_seekbar">discrete-seekbar</string>
+    <!-- 11dex分包 -->
+    <string name="nav_Multidex">Multidex</string>
+    <!-- 12多渠道打包 -->
+    <string name="nav_channel">友盟channel</string>
+    <string name="nav_walle_plugin">美团walle-plugin</string>
+    <!-- 13二维码扫码 -->
+    <string name="nav_Zxing">Zxing</string>
+    <!-- 14响应式编程框架 -->
+    <string name="nav_Rxjava">Rxjava（配合Retrofit2使用）</string>
+    <string name="nav_RxAndroid">RxAndroid</string>
+
+
+
+
 </resources>

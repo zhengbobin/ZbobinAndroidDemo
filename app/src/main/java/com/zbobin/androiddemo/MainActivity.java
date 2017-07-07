@@ -13,6 +13,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.zbobin.androiddemo.utils.ToastUtil;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -80,18 +82,78 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        //1网络请求
+        if (id == R.id.nav_android_async_http) {
+            ToastUtil.showMessage(this, R.string.nav_android_async_http);
+        } else if (id == R.id.nav_httpmime) {
+            ToastUtil.showMessage(this, R.string.nav_httpmime);
+        } else if (id == R.id.nav_okHttp) {
+            ToastUtil.showMessage(this, R.string.nav_okHttp);
+        } else if (id == R.id.nav_retrofit2) {
+            ToastUtil.showMessage(this, R.string.nav_retrofit2);
+        //2下拉刷新、加载更多
+        } else if (id == R.id.nav_PullToRefresh) {
+            ToastUtil.showMessage(this, R.string.nav_PullToRefresh);
+        } else if (id == R.id.nav_Ultra_Pull_To_Refresh) {
+            ToastUtil.showMessage(this, R.string.nav_Ultra_Pull_To_Refresh);
+        //3注解
+        } else if (id == R.id.nav_Butterknife) {
+            ToastUtil.showMessage(this, R.string.nav_Butterknife);
+        } else if (id == R.id.nav_dagger2) {
+            ToastUtil.showMessage(this, R.string.nav_dagger2);
+        //4json解析
+        } else if (id == R.id.nav_Json) {
+            ToastUtil.showMessage(this, R.string.nav_Json);
+        } else if (id == R.id.nav_Gson) {
+            ToastUtil.showMessage(this, R.string.nav_Gson);
+        } else if (id == R.id.nav_FastJson) {
+            ToastUtil.showMessage(this, R.string.nav_FastJson);
+        } else if (id == R.id.nav_converter_gson) {
+            ToastUtil.showMessage(this, R.string.nav_converter_gson);
+        //5图片加速
+        } else if (id == R.id.nav_maa) {
+            ToastUtil.showMessage(this, R.string.nav_maa);
+        //6图片加载
+        } else if (id == R.id.nav_Universalimageloader) {
+            ToastUtil.showMessage(this, R.string.nav_Universalimageloader);
+        } else if (id == R.id.nav_Photoview) {
+            ToastUtil.showMessage(this, R.string.nav_Photoview);
+        //7字母导航栏
+        } else if (id == R.id.nav_pinyin4j) {
+            ToastUtil.showMessage(this, R.string.nav_pinyin4j);
+        //8com.android.support组件
+        } else if (id == R.id.nav_Design) {
+            ToastUtil.showMessage(this, R.string.nav_Design);
+        } else if (id == R.id.nav_appcompat_v7) {
+            ToastUtil.showMessage(this, R.string.nav_appcompat_v7);
+        } else if (id == R.id.nav_recyclerview_v7) {
+            ToastUtil.showMessage(this, R.string.nav_recyclerview_v7);
+        } else if (id == R.id.nav_cardview_v7) {
+            ToastUtil.showMessage(this, R.string.nav_cardview_v7);
+        //9时间
+        } else if (id == R.id.nav_TimePickerDialog) {
+            ToastUtil.showMessage(this, R.string.nav_TimePickerDialog);
+        } else if (id == R.id.nav_android_times_square) {
+            ToastUtil.showMessage(this, R.string.nav_android_times_square);
+        //10拖动选取
+        } else if (id == R.id.nav_discrete_seekbar) {
+            ToastUtil.showMessage(this, R.string.nav_discrete_seekbar);
+        //11dex分包
+        } else if (id == R.id.nav_Multidex) {
+            ToastUtil.showMessage(this, R.string.nav_Multidex);
+        //12多渠道打包
+        } else if (id == R.id.nav_channel) {
+            ToastUtil.showMessage(this, R.string.nav_channel);
+        } else if (id == R.id.nav_walle_plugin) {
+            ToastUtil.showMessage(this, R.string.nav_walle_plugin);
+        //13二维码扫码
+        } else if (id == R.id.nav_Zxing) {
+            ToastUtil.showMessage(this, R.string.nav_Zxing);
+        //14响应式编程框架
+        } else if (id == R.id.nav_Rxjava) {
+            ToastUtil.showMessage(this, R.string.nav_Rxjava);
+        } else if (id == R.id.nav_RxAndroid) {
+            ToastUtil.showMessage(this, R.string.nav_RxAndroid);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
