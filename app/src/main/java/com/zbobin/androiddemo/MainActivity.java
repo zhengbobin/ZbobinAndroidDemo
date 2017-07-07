@@ -1,4 +1,4 @@
-package com.zbobin.zbobin_android_demo;
+package com.zbobin.androiddemo;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
