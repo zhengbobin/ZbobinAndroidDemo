@@ -12,18 +12,39 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+import com.zbobin.androiddemo.entity.StaticData;
+import com.zbobin.androiddemo.entity.UrlData;
+import com.zbobin.androiddemo.utils.CommonLogUtil;
+import com.zbobin.androiddemo.utils.HttpUtil;
+import com.zbobin.androiddemo.utils.NetworkUtil;
 import com.zbobin.androiddemo.utils.ToastUtil;
+import com.zbobin.androiddemo.widget.dialog.LoadDialog;
 
+/**
+ * 主界面
+ *
+ * @author zbobin
+ */
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private static final String TAG = MainActivity.class.getSimpleName();
+    private TextView textViewResult;
+    private LoadDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        dialog = new LoadDialog(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        textViewResult = (TextView) findViewById(R.id.textView_result);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -84,9 +105,17 @@ public class MainActivity extends AppCompatActivity
 
         //1网络请求
         if (id == R.id.nav_android_async_http) {
-            ToastUtil.showMessage(this, R.string.nav_android_async_http);
+            if(NetworkUtil.isNetworkAvailable(this) || NetworkUtil.isWiFiActive(this)){
+                requestData();
+            }else{
+                ToastUtil.showMessage(this, R.string.network_is_disabled, Toast.LENGTH_LONG);
+            }
         } else if (id == R.id.nav_httpmime) {
-            ToastUtil.showMessage(this, R.string.nav_httpmime);
+            if(NetworkUtil.isNetworkAvailable(this) || NetworkUtil.isWiFiActive(this)){
+                requestData();
+            }else{
+                ToastUtil.showMessage(this, R.string.network_is_disabled, Toast.LENGTH_LONG);
+            }
         } else if (id == R.id.nav_okHttp) {
             ToastUtil.showMessage(this, R.string.nav_okHttp);
         } else if (id == R.id.nav_retrofit2) {
@@ -159,5 +188,49 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void requestData() {
+        RequestParams params = HttpUtil.getRequestParams(this);
+        params.put(StaticData.PAGE, "1");
+
+        HttpUtil.post(this, UrlData.APP_KIND, params, new AsyncHttpResponseHandler() {
+
+            @Override
+            public void onStart() {
+                super.onStart();
+                if (dialog != null && !isFinishing()) {
+                     dialog.show();
+                }
+            }
+
+            @Override
+            public void onSuccess(String s) {
+                super.onSuccess(s);
+                try {
+                    CommonLogUtil.e(TAG, s);
+                    textViewResult.setText(s);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable throwable, String s) {
+                super.onFailure(throwable, s);
+                if (dialog != null) {
+                    dialog.dismiss();
+                }
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                if (dialog != null) {
+                    dialog.dismiss();
+                }
+            }
+        });
+
     }
 }

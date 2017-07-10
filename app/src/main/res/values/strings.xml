@@ -66,7 +66,8 @@
     <string name="nav_Rxjava">Rxjava（配合Retrofit2使用）</string>
     <string name="nav_RxAndroid">RxAndroid</string>
 
-
+    <string name="network_is_disabled">网络不可用，请检查一下您的网络</string>
+    <string name="network_is_error">网络不给力，请重试!</string>
 
 
 </resources>
