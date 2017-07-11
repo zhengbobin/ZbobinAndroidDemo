@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.zbobin.zbobin_android_demo", appContext.getPackageName());
+        assertEquals("com.zbobin.android_demo", appContext.getPackageName());
     }
 }

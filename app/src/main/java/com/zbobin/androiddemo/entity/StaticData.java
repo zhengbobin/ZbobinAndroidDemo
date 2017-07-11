@@ -8,7 +8,7 @@ package com.zbobin.androiddemo.entity;
 public class StaticData {
 
     // 请求网络响应返回码
-    public static final String REQUEST_SUCCEED_CODE = "200";
+    public static final String REQUEST_SUCCEED_CODE_200 = "200";//请求成功
     public static final String REQUEST_FAILURE_CODE_401 = "401";
     public static final String REQUEST_FAILURE_CODE_402 = "402";
     public static final String REQUEST_FAILURE_CODE_403 = "403";
@@ -32,5 +32,11 @@ public class StaticData {
 
     // 页码
     public static final String PAGE = "page";
+
+    // 标题
+    public static final String TITLE = "title";
+    // URL
+    public static final String URL = "url";
+
 
 }

@@ -1,5 +1,6 @@
-package com.zbobin.androiddemo;
+package com.zbobin.androiddemo.app.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,15 +9,20 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
-
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.zbobin.androiddemo.R;
+import com.zbobin.androiddemo.app.base.BaseActity;
+import com.zbobin.androiddemo.app.base.CommonWebViewActivity;
+import com.zbobin.androiddemo.app.home.adapter.KindListAdapter;
+import com.zbobin.androiddemo.app.home.entity.KindEntity;
+import com.zbobin.androiddemo.app.home.entity.KindResponseEntity;
 import com.zbobin.androiddemo.entity.StaticData;
 import com.zbobin.androiddemo.entity.UrlData;
 import com.zbobin.androiddemo.utils.CommonLogUtil;
@@ -24,18 +30,22 @@ import com.zbobin.androiddemo.utils.HttpUtil;
 import com.zbobin.androiddemo.utils.NetworkUtil;
 import com.zbobin.androiddemo.utils.ToastUtil;
 import com.zbobin.androiddemo.widget.dialog.LoadDialog;
+import java.util.ArrayList;
 
 /**
  * 主界面
  *
  * @author zbobin
  */
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends BaseActity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-    private TextView textViewResult;
+    private ListView listView;
     private LoadDialog dialog;
+
+    private ArrayList<KindEntity> entities = new ArrayList<>();
+    private KindListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +54,26 @@ public class MainActivity extends AppCompatActivity
         dialog = new LoadDialog(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        textViewResult = (TextView) findViewById(R.id.textView_result);
+        listView = (ListView) findViewById(R.id.listView);
+        adapter = new KindListAdapter(MainActivity.this, entities);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                try {
+                    Intent intent = new Intent(MainActivity.this, CommonWebViewActivity.class);
+                    String title = entities.get(position).getKind_name();
+                    String url = entities.get(position).getKind_url();
+                    intent.putExtra(StaticData.TITLE,title);
+                    intent.putExtra(StaticData.URL, url);
+                    CommonLogUtil.d(TAG + ":title", title);
+                    CommonLogUtil.d(TAG + ":url", url);
+                    startActivity(intent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -105,17 +134,9 @@ public class MainActivity extends AppCompatActivity
 
         //1网络请求
         if (id == R.id.nav_android_async_http) {
-            if(NetworkUtil.isNetworkAvailable(this) || NetworkUtil.isWiFiActive(this)){
-                requestData();
-            }else{
-                ToastUtil.showMessage(this, R.string.network_is_disabled, Toast.LENGTH_LONG);
-            }
+            requestData();
         } else if (id == R.id.nav_httpmime) {
-            if(NetworkUtil.isNetworkAvailable(this) || NetworkUtil.isWiFiActive(this)){
-                requestData();
-            }else{
-                ToastUtil.showMessage(this, R.string.network_is_disabled, Toast.LENGTH_LONG);
-            }
+            requestData();
         } else if (id == R.id.nav_okHttp) {
             ToastUtil.showMessage(this, R.string.nav_okHttp);
         } else if (id == R.id.nav_retrofit2) {
@@ -191,6 +212,13 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void requestData() {
+
+        //判断网络是否可用
+        if (!NetworkUtil.isNetworkAvailable(this) && !NetworkUtil.isWiFiActive(this)) {
+            ToastUtil.showMessage(this, R.string.network_is_disabled, Toast.LENGTH_LONG);
+            return;
+        }
+
         RequestParams params = HttpUtil.getRequestParams(this);
         params.put(StaticData.PAGE, "1");
 
@@ -209,7 +237,15 @@ public class MainActivity extends AppCompatActivity
                 super.onSuccess(s);
                 try {
                     CommonLogUtil.e(TAG, s);
-                    textViewResult.setText(s);
+                    KindResponseEntity response = KindResponseEntity.getInstance(s);
+                    entities.clear();
+                    if (response != null && StaticData.REQUEST_SUCCEED_CODE_200.equals(response.getStatus())) {
+                        entities.addAll(response.getKind());
+                        ToastUtil.showMessage(MainActivity.this, response.getMsg());
+                    }else {
+                        ToastUtil.showMessage(MainActivity.this, response.getMsg());
+                    }
+                    adapter.notifyDataSetChanged();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -232,5 +268,13 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()) {
+
+        }
     }
 }

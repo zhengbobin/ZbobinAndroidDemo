@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.zbobin.zbobin_android_demo"
+        applicationId "com.zbobin.androiddemo"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
@@ -28,7 +28,10 @@ dependencies {
     compile 'com.android.support:design:25.3.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
     testCompile 'junit:junit:4.12'
-
-    /** Http请求 */
+    /** Http请求  */
     compile files('libs/android-async-http-1.4.3.jar')
+    /** JSON转换 */
+    compile files('libs/myjson.jar')
+    /** butterknife */
+    compile 'com.jakewharton:butterknife:8.5.1'
 }
